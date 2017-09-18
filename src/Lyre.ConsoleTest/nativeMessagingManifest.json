@@ -1,0 +1,9 @@
+﻿{
+  "name": "com.lyre.consoletest",
+  "description": "Lyre Console Test",
+  "path": "C:\\git\\Lyre\\src\\Lyre.ConsoleTest\\bin\\Debug\\netcoreapp2.0\\win7-x64\\Lyre.ConsoleTest.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://doennphhmchjhmplpcbhlkfmpifobfjf/"
+  ]
+}
