@@ -7,6 +7,13 @@ using Newtonsoft.Json.Serialization;
 
 namespace Lyre
 {
+    /// <summary>
+    /// Provides methods for communicating over streams via the Chrome Native Messaging protocol.
+    /// </summary>
+    /// <remarks>
+    /// Typically Chrome Native Messaging communicates via the stdin and stdout streams, 
+    /// but any streams that support reading and writing can be used.
+    /// </remarks>
     public class NativeMessagingHost
     {
         private readonly Stream _inStream;
@@ -23,6 +30,11 @@ namespace Lyre
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NativeMessagingHost"/> using the 
+        /// stdin input stream, the stdout ouput stream, <see cref="UTF8Encoding"/> and the 
+        /// default serialization settings.
+        /// </summary>
         public NativeMessagingHost()
             : this(Console.OpenStandardInput(), Console.OpenStandardOutput(), Encoding.UTF8, DefaultSerializerSettings)
         {
@@ -36,6 +48,11 @@ namespace Lyre
             _jsonSerializerSettings = jsonSerializerSettings ?? throw new ArgumentNullException(nameof(jsonSerializerSettings));
         }
 
+        /// <summary>
+        /// Serializes an object to a JSON string and sends the result to the 
+        /// Native Messaging output stream.
+        /// </summary>
+        /// <param name="value">The object to serialize and send.</param>
         public async Task Write(object value)
         {
             var jsonString = JsonConvert.SerializeObject(value, _jsonSerializerSettings);
