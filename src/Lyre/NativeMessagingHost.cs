@@ -40,6 +40,10 @@ namespace Lyre
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NativeMessagingHost"/> using the 
+        /// provided input stream, ouput stream, <see cref="Encoding"/> and <see cref="JsonSerializerSettings"/>.
+        /// </summary>
         public NativeMessagingHost(Stream inStream, Stream outStream, Encoding encoding, JsonSerializerSettings jsonSerializerSettings)
         {
             _inStream = inStream ?? throw new ArgumentNullException(nameof(inStream));
