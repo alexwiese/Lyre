@@ -6,6 +6,7 @@
     <Authors>Alex Wiese</Authors>
     <Description>Chrome Native Messaging implementation for .NET and .NET Core</Description>
     <PackageTags>chrome native messaging</PackageTags>
+    <Version>$version$</Version>
   </PropertyGroup>
 
   <ItemGroup>
