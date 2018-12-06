@@ -21,6 +21,10 @@ Allows easy communication with a Chrome extension using Chrome Native Messaging 
         // Disconnected
     }
     
+## Example/Chrome Extension
+
+See https://github.com/alexwiese/Lyre/tree/master/src/Lyre.ConsoleTest for an example of a Chrome extension communicating with a Native Messaging Host.
+    
 ## Customization
 
 The NativeMessagingHost uses JSON.NET for serialization. This can be customized by passing in a `JsonSerializerSettings` object.
