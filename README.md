@@ -1,4 +1,6 @@
 # Lyre
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falexwiese%2FLyre.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falexwiese%2FLyre?ref=badge_shield)
+
 Chrome Native Messaging implementation for .NET and .NET Core.
 Allows easy communication with a Chrome extension using Chrome Native Messaging protocol.
 
@@ -61,3 +63,7 @@ By default Chrome Native Messaging uses `stdin` and `stdout` to communicate. If 
     
     
     
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falexwiese%2FLyre.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Falexwiese%2FLyre?ref=badge_large)
