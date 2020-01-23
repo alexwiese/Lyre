@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Alex Wiese</Authors>
     <Description>Chrome Native Messaging implementation for .NET and .NET Core</Description>
     <PackageTags>chrome native messaging</PackageTags>
-    <Version>$version$</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
