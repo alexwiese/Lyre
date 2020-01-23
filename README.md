@@ -1,5 +1,7 @@
 # Lyre
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falexwiese%2FLyre.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falexwiese%2FLyre?ref=badge_shield)
+![AppVeyor](https://img.shields.io/appveyor/ci/alexwiese/lyre)
+![Nuget](https://img.shields.io/nuget/dt/lyre)
 
 Chrome Native Messaging implementation for .NET and .NET Core.
 Allows easy communication with a Chrome extension using Chrome Native Messaging protocol.
