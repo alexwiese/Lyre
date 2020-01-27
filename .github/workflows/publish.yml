@@ -1,0 +1,28 @@
+name: Publish
+
+on: 
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        dotnet: [ '2.2.103', '3.0.100', '3.1.100' ]
+    name: Dotnet ${{ matrix.dotnet }} Publish
+    steps:
+    - uses: actions/checkout@master
+    # Authenticates packages to push to GPR
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.100' # SDK Version to use.
+        source-url: https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}
+    - run: dotnet build src/Lyre.sln --configuration Release
+    - name: Create the package
+      run: dotnet pack --configuration Release src/Lyre.sln
+    - name: Publish the package to GPR
+      run: dotnet nuget push src/Lyre.sln /bin/Release/*.nupkg
