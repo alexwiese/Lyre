@@ -9,7 +9,7 @@ Allows easy communication with a Chrome extension using Chrome Native Messaging 
 
 ## Install
 
-Get it on NuGet: `PM> Install-Package Lyre`
+Get it on [NuGet](https://www.nuget.org/packages/Lyre): `PM> Install-Package Lyre`
 
 ## Usage
 
