@@ -16,16 +16,14 @@ jobs:
     name: Dotnet ${{ matrix.dotnet }} Publish
     steps:
     - uses: actions/checkout@v4
-    # Authenticates packages to push to GPR
+    # Authenticates packages to push to NuGet
     - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x' # SDK Version to use.
         source-url: https://api.nuget.org/v3/index.json
     - run: dotnet build src/Lyre.sln --configuration Release
     - name: Create the package
-      run: dotnet pack --configuration Release src/Lyre.sln      
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}      
-    - name: Publish the package to GPR
-      run: dotnet nuget push src/Lyre/bin/Release/*.nupkg
+      run: dotnet pack --configuration Release src/Lyre.sln
+    - name: Publish the package to NuGet
+      run: dotnet nuget push src/Lyre/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json
      
