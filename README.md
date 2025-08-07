@@ -13,7 +13,7 @@ Get it on [NuGet](https://www.nuget.org/packages/Lyre): `PM> Install-Package Lyr
 
 ## Usage
 
-    var host = new NativeMessagingHost();
+    using var host = new NativeMessagingHost();
 
     try
     {
@@ -40,6 +40,25 @@ The NativeMessagingHost uses JSON.NET for serialization. This can be customized 
 The `Encoding` and `Stream` objects used for communications can also be passed into the constructor.
 
     var host = new NativeMessagingHost(Console.OpenStandardInput(), Console.OpenStandardOutput(), Encoding.UTF8, new JsonSerializerSettings{ Formatting = Formatting.None});
+
+### Advanced Usage
+
+    // Using cancellation tokens for timeout support
+    using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+    var message = await host.Read<dynamic>(cts.Token);
+    await host.Write(response, cts.Token);
+
+    // Proper disposal pattern
+    using var host = new NativeMessagingHost(inputStream, outputStream, encoding, settings, ownsStreams: true);
+
+## Chrome Native Messaging Protocol Compliance
+
+This library fully complies with the Chrome Native Messaging protocol:
+
+- **Message Size Limits**: Enforces the 1MB message size limit as required by Chrome
+- **Proper Error Handling**: Validates message formats and sizes
+- **Resource Management**: Implements proper disposal patterns for stream cleanup
+- **Async Support**: Full cancellation token support for timeout handling
 
 ## Supressing Console Output
 
