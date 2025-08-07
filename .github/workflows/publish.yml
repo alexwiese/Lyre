@@ -9,17 +9,17 @@ jobs:
   build:
     env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '3.1.100' ]
+        dotnet: [ '9.0.x' ]
     name: Dotnet ${{ matrix.dotnet }} Publish
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v4
     # Authenticates packages to push to GPR
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '3.1.100' # SDK Version to use.
+        dotnet-version: '9.0.x' # SDK Version to use.
         source-url: https://api.nuget.org/v3/index.json
     - run: dotnet build src/Lyre.sln --configuration Release
     - name: Create the package
