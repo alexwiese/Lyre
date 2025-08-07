@@ -25,5 +25,5 @@ jobs:
     - name: Create the package
       run: dotnet pack --configuration Release src/Lyre.sln
     - name: Publish the package to NuGet
-      run: dotnet nuget push src/Lyre/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push src/Lyre/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
      
