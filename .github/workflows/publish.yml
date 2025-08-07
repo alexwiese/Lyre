@@ -27,5 +27,5 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}      
     - name: Publish the package to GPR
-      run: dotnet nuget push /bin/Release/*.nupkg
+      run: dotnet nuget push src/Lyre/bin/Release/*.nupkg
      
